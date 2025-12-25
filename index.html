@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Nehal Nadaf - Professional video editor creating content that helps brands grow, convert, and build authority. 4+ years of experience.">
+    <meta name="keywords" content="video editing, nehal nadaf, reels, youtube, content creator, video editor">
+    <meta name="author" content="Nehal Nadaf">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Nehal Nadaf | Video Editor Portfolio">
+    <meta property="og:description" content="Creating content that helps brands grow, convert, and build authority">
+    <meta property="og:type" content="website">
+
+    <title>Nehal Nadaf | Video Editor Portfolio</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">NEHAL NADAF</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-background">
+            <!-- Background gradient animation -->
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title" id="heroTitle">Crafting High-Quality Visual Content</h1>
+            <p class="hero-subtitle" id="heroSubtitle">
+                Creating content that helps brands grow, convert, and build authority.
+            </p>
+            <div class="hero-cta">
+                <a href="#portfolio" class="btn btn-primary">
+                    <i class="fas fa-play"></i>
+                    View Portfolio
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    <i class="fas fa-envelope"></i>
+                    Get In Touch
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="section" id="portfolio">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">Featured Work</h2>
+                <p class="section-subtitle">
+                    Explore my latest projects across different platforms and formats
+                </p>
+            </div>
+
+            <!-- Video Filters -->
+            <div class="video-filters reveal">
+                <button class="filter-btn active" data-filter="all">All Videos</button>
+                <button class="filter-btn" data-filter="vertical">Vertical (Reels)</button>
+                <button class="filter-btn" data-filter="horizontal">Horizontal (YouTube)</button>
+            </div>
+
+            <!-- Video Grid -->
+            <div class="video-grid" id="videoGrid">
+                <!-- Videos will be dynamically loaded here -->
+            </div>
+
+            <!-- Load More Button -->
+            <div class="text-center mt-3">
+                <button class="btn btn-secondary" id="loadMoreBtn">
+                    <i class="fas fa-plus"></i>
+                    Load More Videos
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">About Me</h2>
+                <p class="section-subtitle">
+                    4+ years of experience in video editing and content creation
+                </p>
+            </div>
+
+            <div class="about-content reveal">
+                <div class="about-image">
+                    <img src="assets/editor-photo.jpg" alt="Video Editor" id="aboutImage">
+                </div>
+                <div class="about-text">
+                    <h3 id="aboutHeading">Bringing Your Vision to Life</h3>
+                    <p id="aboutDescription">
+                        With years of experience in video editing and post-production, I specialize in creating
+                        engaging content that resonates with audiences. From viral Instagram Reels to cinematic
+                        YouTube videos, I bring technical expertise and creative vision to every project.
+                    </p>
+                    <p>
+                        My approach combines cutting-edge editing techniques with a deep understanding of
+                        platform-specific requirements and audience preferences. Whether it's a 15-second Reel
+                        or a feature-length documentary, I ensure every frame serves the story.
+                    </p>
+
+                    <h4 class="mt-3 mb-2">Core Skills</h4>
+                    <div class="skills-list" id="skillsList">
+                        <div class="skill-item">Instagram Reels Editing</div>
+                        <div class="skill-item">YouTube Content Creation</div>
+                        <div class="skill-item">Color Grading & Correction</div>
+                        <div class="skill-item">Motion Graphics</div>
+                        <div class="skill-item">Sound Design</div>
+                        <div class="skill-item">Visual Effects</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section" id="services">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">Services</h2>
+                <p class="section-subtitle">
+                    Professional video editing solutions tailored to your needs
+                </p>
+            </div>
+
+            <div class="services-grid" id="servicesGrid">
+                <div class="service-card glass-card reveal">
+                    <div class="service-icon">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <h3 class="service-title">Instagram Reels Editing</h3>
+                    <p class="service-description">
+                        Fast-paced, engaging vertical content optimized for maximum reach and engagement.
+                        Trending effects, dynamic transitions, and viral-worthy edits.
+                    </p>
+                    <a href="#contact" class="btn btn-secondary">Get Quote</a>
+                </div>
+
+                <div class="service-card glass-card reveal">
+                    <div class="service-icon">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                    <h3 class="service-title">YouTube Video Editing</h3>
+                    <p class="service-description">
+                        Professional long-form content editing with pacing, graphics, and storytelling
+                        that keeps viewers engaged from start to finish.
+                    </p>
+                    <a href="#contact" class="btn btn-secondary">Get Quote</a>
+                </div>
+
+                <div class="service-card glass-card reveal">
+                    <div class="service-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3 class="service-title">Color Grading</h3>
+                    <p class="service-description">
+                        Cinematic color correction and grading to give your footage a professional,
+                        polished look that matches your brand aesthetic.
+                    </p>
+                    <a href="#contact" class="btn btn-secondary">Get Quote</a>
+                </div>
+
+                <div class="service-card glass-card reveal">
+                    <div class="service-icon">
+                        <i class="fas fa-film"></i>
+                    </div>
+                    <h3 class="service-title">Commercial & Ads</h3>
+                    <p class="service-description">
+                        High-impact commercial editing for brands and businesses. Attention-grabbing
+                        content that drives conversions and brand awareness.
+                    </p>
+                    <a href="#contact" class="btn btn-secondary">Get Quote</a>
+                </div>
+
+                <div class="service-card glass-card reveal">
+                    <div class="service-icon">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <h3 class="service-title">Motion Graphics</h3>
+                    <p class="service-description">
+                        Custom motion graphics, lower thirds, titles, and animated elements to
+                        elevate your content and enhance storytelling.
+                    </p>
+                    <a href="#contact" class="btn btn-secondary">Get Quote</a>
+                </div>
+
+                <div class="service-card glass-card reveal">
+                    <div class="service-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3 class="service-title">Documentary Editing</h3>
+                    <p class="service-description">
+                        Thoughtful, narrative-driven editing for documentaries and long-form content.
+                        Crafting compelling stories that inform and inspire.
+                    </p>
+                    <a href="#contact" class="btn btn-secondary">Get Quote</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">Let's Work Together</h2>
+                <p class="section-subtitle">
+                    Ready to bring your project to life? Get in touch and let's create something amazing.
+                </p>
+            </div>
+
+            <div class="contact-content reveal">
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Your Name</label>
+                        <input type="text" id="name" name="name" class="form-input" required placeholder="John Doe">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" id="email" name="email" class="form-input" required
+                            placeholder="john@example.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea id="message" name="message" class="form-textarea" required
+                            placeholder="Tell me about your project..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">
+                        <i class="fas fa-paper-plane"></i>
+                        Send Message
+                    </button>
+                </form>
+
+                <!-- Social Links -->
+                <div class="social-links">
+                    <a href="mailto:mailnehalfx@gmail.com" class="social-link" aria-label="Email" id="emailLink">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://wa.me/916363278962" class="social-link" aria-label="WhatsApp" id="whatsappLink"
+                        target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Nehal Nadaf. All rights reserved.</p>
+    </footer>
+
+    <!-- Video Modal -->
+    <div class="video-modal" id="videoModal">
+        <div class="video-modal-content" id="videoModalContent">
+            <button class="video-modal-close" id="videoModalClose" aria-label="Close video">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="video-modal-player" id="videoModalPlayer">
+                <!-- Video will be loaded here -->
+            </div>
+            <div class="video-modal-info">
+                <h3 class="video-modal-title" id="videoModalTitle"></h3>
+                <p class="video-modal-description" id="videoModalDescription"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

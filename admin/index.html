@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Video Portfolio</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="admin-styles.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="admin-body">
+    <!-- Login Screen -->
+    <div class="login-container" id="loginContainer">
+        <div class="login-card glass-card">
+            <div class="login-header">
+                <i class="fas fa-video"
+                    style="font-size: 3rem; color: var(--color-accent-primary); margin-bottom: var(--space-lg);"></i>
+                <h1>Admin Dashboard</h1>
+                <p>Sign in to manage your portfolio</p>
+            </div>
+            <form class="login-form" id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail" class="form-label">
+                        <i class="fas fa-envelope"></i> Email
+                    </label>
+                    <input type="email" id="loginEmail" class="form-input" required placeholder="admin@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword" class="form-label">
+                        <i class="fas fa-lock"></i> Password
+                    </label>
+                    <input type="password" id="loginPassword" class="form-input" required
+                        placeholder="Enter your password">
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">
+                    <i class="fas fa-sign-in-alt"></i>
+                    Sign In
+                </button>
+                <p class="login-hint">
+                    <small>Default: admin@portfolio.com / admin123</small>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div class="admin-dashboard hidden" id="adminDashboard">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="sidebar-header">
+                <h2><i class="fas fa-video"></i> Portfolio Admin</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="sidebar-link active" data-section="videos">
+                    <i class="fas fa-film"></i> Videos
+                </a>
+                <a href="#" class="sidebar-link" data-section="content">
+                    <i class="fas fa-edit"></i> Site Content
+                </a>
+                <a href="#" class="sidebar-link" data-section="settings">
+                    <i class="fas fa-cog"></i> Settings
+                </a>
+                <a href="#" class="sidebar-link" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <div class="admin-header">
+                <h1 id="sectionTitle">Video Management</h1>
+                <div class="admin-actions">
+                    <button class="btn btn-secondary" id="viewSiteBtn">
+                        <i class="fas fa-external-link-alt"></i> View Site
+                    </button>
+                </div>
+            </div>
+
+            <!-- Videos Section -->
+            <section class="admin-section active" id="videosSection">
+                <div class="section-toolbar">
+                    <button class="btn btn-primary" id="addVideoBtn">
+                        <i class="fas fa-plus"></i> Add New Video
+                    </button>
+                    <div class="toolbar-actions">
+                        <button class="btn btn-secondary" id="exportDataBtn">
+                            <i class="fas fa-download"></i> Export
+                        </button>
+                        <button class="btn btn-secondary" id="importDataBtn">
+                            <i class="fas fa-upload"></i> Import
+                        </button>
+                    </div>
+                </div>
+
+                <div class="videos-list" id="videosList">
+                    <!-- Videos will be loaded here -->
+                </div>
+            </section>
+
+            <!-- Content Section -->
+            <section class="admin-section" id="contentSection">
+                <div class="content-tabs">
+                    <button class="tab-btn active" data-tab="hero">Hero Section</button>
+                    <button class="tab-btn" data-tab="about">About</button>
+                    <button class="tab-btn" data-tab="contact">Contact</button>
+                </div>
+
+                <!-- Hero Tab -->
+                <div class="tab-content active" id="heroTab">
+                    <div class="glass-card" style="padding: var(--space-2xl);">
+                        <h3>Hero Section Content</h3>
+                        <form id="heroForm">
+                            <div class="form-group">
+                                <label class="form-label">Main Title</label>
+                                <input type="text" id="heroTitle" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Subtitle</label>
+                                <textarea id="heroSubtitle" class="form-textarea" rows="3" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save"></i> Save Changes
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- About Tab -->
+                <div class="tab-content" id="aboutTab">
+                    <div class="glass-card" style="padding: var(--space-2xl);">
+                        <h3>About Section Content</h3>
+                        <form id="aboutForm">
+                            <div class="form-group">
+                                <label class="form-label">Heading</label>
+                                <input type="text" id="aboutHeading" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Description</label>
+                                <textarea id="aboutDescription" class="form-textarea" rows="5" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Image URL</label>
+                                <input type="url" id="aboutImage" class="form-input"
+                                    placeholder="https://example.com/image.jpg">
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save"></i> Save Changes
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Contact Tab -->
+                <div class="tab-content" id="contactTab">
+                    <div class="glass-card" style="padding: var(--space-2xl);">
+                        <h3>Contact Information</h3>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <i class="fab fa-instagram"></i> Instagram URL
+                                </label>
+                                <input type="url" id="contactInstagram" class="form-input"
+                                    placeholder="https://instagram.com/username">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <i class="fab fa-youtube"></i> YouTube URL
+                                </label>
+                                <input type="url" id="contactYoutube" class="form-input"
+                                    placeholder="https://youtube.com/@channel">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <i class="fas fa-envelope"></i> Email
+                                </label>
+                                <input type="email" id="contactEmail" class="form-input"
+                                    placeholder="contact@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <i class="fab fa-whatsapp"></i> WhatsApp URL
+                                </label>
+                                <input type="url" id="contactWhatsapp" class="form-input"
+                                    placeholder="https://wa.me/1234567890">
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save"></i> Save Changes
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Settings Section -->
+            <section class="admin-section" id="settingsSection">
+                <div class="glass-card" style="padding: var(--space-2xl);">
+                    <h3>Settings & Data Management</h3>
+
+                    <div class="settings-group">
+                        <h4>Data Management</h4>
+                        <p style="color: rgba(255, 255, 255, 0.7); margin-bottom: var(--space-lg);">
+                            Manage your portfolio data and settings
+                        </p>
+                        <div class="settings-actions">
+                            <button class="btn btn-secondary" id="resetDataBtn">
+                                <i class="fas fa-undo"></i> Reset to Defaults
+                            </button>
+                            <button class="btn btn-secondary" id="clearCacheBtn">
+                                <i class="fas fa-trash"></i> Clear Cache
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="settings-group mt-3">
+                        <h4>Account</h4>
+                        <p style="color: rgba(255, 255, 255, 0.7); margin-bottom: var(--space-lg);">
+                            Change your admin credentials
+                        </p>
+                        <form id="changePasswordForm">
+                            <div class="form-group">
+                                <label class="form-label">New Password</label>
+                                <input type="password" id="newPassword" class="form-input"
+                                    placeholder="Enter new password">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Confirm Password</label>
+                                <input type="password" id="confirmPassword" class="form-input"
+                                    placeholder="Confirm new password">
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-key"></i> Update Password
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Video Modal -->
+    <div class="modal hidden" id="videoModal">
+        <div class="modal-content glass-card">
+            <div class="modal-header">
+                <h2 id="modalTitle">Add New Video</h2>
+                <button class="modal-close" id="modalClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form class="modal-body" id="videoForm">
+                <input type="hidden" id="videoId">
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Video Title *</label>
+                        <input type="text" id="videoTitle" class="form-input" required placeholder="Enter video title">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Description *</label>
+                    <textarea id="videoDescription" class="form-textarea" rows="3" required
+                        placeholder="Enter video description"></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Thumbnail URL *</label>
+                        <input type="url" id="videoThumbnail" class="form-input" required
+                            placeholder="https://example.com/thumbnail.jpg">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Video URL *</label>
+                        <input type="url" id="videoUrl" class="form-input" required
+                            placeholder="https://youtube.com/embed/... or video file URL">
+                        <small style="color: rgba(255, 255, 255, 0.6);">YouTube embed URL or direct video file
+                            link</small>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Orientation *</label>
+                        <select id="videoOrientation" class="form-input" required>
+                            <option value="horizontal">Horizontal (16:9)</option>
+                            <option value="vertical">Vertical (9:16)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Category *</label>
+                        <input type="text" id="videoCategory" class="form-input" required
+                            placeholder="e.g., Reel, YouTube, Ad">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Platform *</label>
+                        <select id="videoPlatform" class="form-input" required>
+                            <option value="instagram">Instagram</option>
+                            <option value="youtube">YouTube</option>
+                            <option value="client">Client Work</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" style="display: flex; align-items: center; gap: var(--space-sm);">
+                            <input type="checkbox" id="videoFeatured" style="width: auto;">
+                            Featured Video
+                        </label>
+                        <label class="form-label" style="display: flex; align-items: center; gap: var(--space-sm);">
+                            <input type="checkbox" id="videoVisible" checked style="width: auto;">
+                            Visible on Site
+                        </label>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="cancelVideoBtn">Cancel</button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i> Save Video
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Hidden file input for import -->
+    <input type="file" id="importFileInput" accept=".json" style="display: none;">
+
+    <!-- Scripts -->
+    <script src="../js/data.js"></script>
+    <script src="admin.js"></script>
+</body>
+
+</html>
