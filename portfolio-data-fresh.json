@@ -1,0 +1,150 @@
+{
+    "videos": [
+        {
+            "id": 1,
+            "title": "All Sea food permisible?",
+            "description": "An engaging Q&A session about Islamic dietary laws regarding seafood.",
+            "thumbnail": "https://images.unsplash.com/photo-1551248429-42405d2865d1?w=800&h=1422&fit=crop",
+            "videoUrl": "https://drive.google.com/file/d/1Jk89fRsOxdWW2MOkVpH1DhM0Qlzw57Oe/view?usp=drive_link",
+            "orientation": "vertical",
+            "category": "Islam Q&A",
+            "platform": "instagram",
+            "featured": true,
+            "visible": true
+        },
+        {
+            "id": 2,
+            "title": "Al Moon Academy",
+            "description": "Official promotional video for Al Moon Academy, showcasing their educational excellence.",
+            "thumbnail": "https://images.unsplash.com/photo-1523050335192-ce674472bdf1?w=1920&h=1080&fit=crop",
+            "videoUrl": "https://drive.google.com/file/d/1unvec3wiqyQfk9q7pvBbcab8Po_-Npne/view?usp=drive_link",
+            "orientation": "horizontal",
+            "category": "Institution",
+            "platform": "youtube",
+            "featured": true,
+            "visible": true
+        },
+        {
+            "id": 3,
+            "title": "Jawab kaisa denge?",
+            "description": "A thought-provoking message on personal accountability and faith.",
+            "thumbnail": "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&h=1422&fit=crop",
+            "videoUrl": "https://drive.google.com/file/d/1NevVasp0_oxZTc44U5T8L3m-r3hBl8r6/view?usp=drive_link",
+            "orientation": "vertical",
+            "category": "Shorts",
+            "platform": "instagram",
+            "featured": false,
+            "visible": true
+        },
+        {
+            "id": 4,
+            "title": "Tajweed Lessons",
+            "description": "Learning the beautiful art of Quranic recitation with proper Tajweed rules.",
+            "thumbnail": "https://images.unsplash.com/photo-1584281729449-623ad5bbf824?w=800&h=1422&fit=crop",
+            "videoUrl": "https://drive.google.com/file/d/1v-Wn5uUkVc8nW9qkIn3dAh8_-XHAN37Y/view?usp=drive_link",
+            "orientation": "vertical",
+            "category": "Education",
+            "platform": "instagram",
+            "featured": false,
+            "visible": true
+        },
+        {
+            "id": 5,
+            "title": "Huroof Mastery",
+            "description": "Mastering the Arabic alphabet with clear pronunciation and visual guidance.",
+            "thumbnail": "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=800&h=1422&fit=crop",
+            "videoUrl": "https://drive.google.com/file/d/1HR-ILmZokr4qCPnydropMk8lWShmNa3r/view?usp=drive_link",
+            "orientation": "vertical",
+            "category": "Education",
+            "platform": "instagram",
+            "featured": false,
+            "visible": true
+        },
+        {
+            "id": 11,
+            "title": "TPF Promo 2025",
+            "description": "The official promotional highlights for the TPF conference.",
+            "thumbnail": "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&h=1422&fit=crop",
+            "videoUrl": "https://drive.google.com/file/d/1kjGfrZtJyWJy6gZAUVL5LsLpWW7zMjil/view?usp=drive_link",
+            "orientation": "vertical",
+            "category": "Promo",
+            "platform": "instagram",
+            "featured": true,
+            "visible": true
+        },
+        {
+            "id": 14,
+            "title": "Clouds Miracle",
+            "description": "A breathtaking look at the wonders of nature in the sky.",
+            "thumbnail": "https://images.unsplash.com/photo-1476970613524-88aa609edf97?w=800&h=1422&fit=crop",
+            "videoUrl": "https://drive.google.com/file/d/1xwWUniyqL7BugnKthNQFKRR1Ub4nprgm/view?usp=drive_link",
+            "orientation": "vertical",
+            "category": "Nature",
+            "platform": "instagram",
+            "featured": false,
+            "visible": true
+        }
+    ],
+    "content": {
+        "hero": {
+            "title": "Nehal Nadaf",
+            "subtitle": "Creating content that helps brands grow, convert, and build authority."
+        },
+        "about": {
+            "heading": "Bringing Your Vision to Life | 4+ Years of Experience",
+            "description": "With 4+ years of experience in video editing and post-production, I specialize in creating engaging content that resonates with audiences. From viral Instagram Reels to cinematic YouTube videos, I bring technical expertise and creative vision to every project.",
+            "image": "assets/nehal-photo.jpg",
+            "skills": [
+                "Instagram Reels Editing",
+                "YouTube Content Creation",
+                "Color Grading & Correction",
+                "Motion Graphics",
+                "Sound Design",
+                "Visual Effects"
+            ]
+        },
+        "services": [
+            {
+                "id": 1,
+                "icon": "fab fa-instagram",
+                "title": "Instagram Reels Editing",
+                "description": "Fast-paced, engaging vertical content optimized for maximum reach and engagement. Trending effects, dynamic transitions, and viral-worthy edits."
+            },
+            {
+                "id": 2,
+                "icon": "fab fa-youtube",
+                "title": "YouTube Video Editing",
+                "description": "Professional long-form content editing with pacing, graphics, and storytelling that keeps viewers engaged from start to finish."
+            },
+            {
+                "id": 3,
+                "icon": "fas fa-palette",
+                "title": "Color Grading",
+                "description": "Cinematic color correction and grading to give your footage a professional, polished look that matches your brand aesthetic."
+            },
+            {
+                "id": 4,
+                "icon": "fas fa-film",
+                "title": "Commercial & Ads",
+                "description": "High-impact commercial editing for brands and businesses. Attention-grabbing content that drives conversions and brand awareness."
+            },
+            {
+                "id": 5,
+                "icon": "fas fa-magic",
+                "title": "Motion Graphics",
+                "description": "Custom motion graphics, lower thirds, titles, and animated elements to elevate your content and enhance storytelling."
+            },
+            {
+                "id": 6,
+                "icon": "fas fa-video",
+                "title": "Documentary Editing",
+                "description": "Thoughtful, narrative-driven editing for documentaries and long-form content. Crafting compelling stories that inform and inspire."
+            }
+        ],
+        "contact": {
+            "email": "contact@nehalnadaf.com",
+            "whatsapp": "https://wa.me/1234567890"
+        }
+    },
+    "exportDate": "2025-12-27T06:55:00.000Z"
+}

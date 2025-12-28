@@ -96,6 +96,9 @@
                         <button class="btn btn-secondary" id="importDataBtn">
                             <i class="fas fa-upload"></i> Import
                         </button>
+                        <button class="btn btn-danger" id="clearAllVideosBtn">
+                            <i class="fas fa-trash-alt"></i> Clear All
+                        </button>
                     </div>
                 </div>
 
@@ -270,20 +273,46 @@
                 </div>
 
                 <div class="form-row">
-                    <div class="form-group">
-                        <label class="form-label">Thumbnail URL *</label>
-                        <input type="url" id="videoThumbnail" class="form-input" required
-                            placeholder="https://example.com/thumbnail.jpg">
+                    <div class="form-group upload-group">
+                        <label class="form-label">Thumbnail (Paste Link or Upload)</label>
+                        <div class="upload-controls">
+                            <input type="url" id="videoThumbnail" class="form-input" required
+                                placeholder="Paste image link here..." style="flex: 1;">
+                            <div class="upload-btn-wrapper">
+                                <button type="button" class="btn btn-secondary">
+                                    <i class="fas fa-image"></i> Upload
+                                </button>
+                                <input type="file" id="thumbUpload" accept="image/*">
+                            </div>
+                        </div>
+                        <div id="thumbPreview" class="file-preview">
+                            <img src="" alt="Preview" class="preview-thumb">
+                            <div class="preview-info">filename.jpg</div>
+                            <i class="fas fa-times preview-remove" id="removeThumb"></i>
+                        </div>
                     </div>
                 </div>
 
                 <div class="form-row">
-                    <div class="form-group">
-                        <label class="form-label">Video URL *</label>
-                        <input type="url" id="videoUrl" class="form-input" required
-                            placeholder="https://youtube.com/embed/... or video file URL">
-                        <small style="color: rgba(255, 255, 255, 0.6);">YouTube embed URL or direct video file
-                            link</small>
+                    <div class="form-group upload-group">
+                        <label class="form-label">Video (Paste YouTube, Drive Link or Upload)</label>
+                        <div class="upload-controls">
+                            <input type="url" id="videoUrl" class="form-input" required
+                                placeholder="Paste YouTube, Google Drive, or video link here..." style="flex: 1;">
+                            <div class="upload-btn-wrapper">
+                                <button type="button" class="btn btn-secondary">
+                                    <i class="fas fa-video"></i> Upload
+                                </button>
+                                <input type="file" id="videoUpload" accept="video/*">
+                            </div>
+                        </div>
+                        <div id="videoPreview" class="file-preview">
+                            <i class="fas fa-file-video" style="font-size: 1.5rem;"></i>
+                            <div class="preview-info">filename.mp4</div>
+                            <i class="fas fa-times preview-remove" id="removeVideo"></i>
+                        </div>
+                        <small style="color: rgba(255, 255, 255, 0.6);">YouTube embed URL or direct video file link. If
+                            uploading, move the file to your `/assets/` folder.</small>
                     </div>
                 </div>
 

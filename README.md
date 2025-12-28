@@ -70,7 +70,7 @@ video-portfolio/
 │   ├── admin-styles.css    # Admin panel styles
 │   └── admin.js            # Admin panel functionality
 ├── assets/
-│   └── editor-photo.jpg    # About section image (add your photo)
+│   └── nehal-photo.jpg       # About section image (add your photo)
 └── README.md               # This file
 ```
 

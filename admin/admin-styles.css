@@ -47,6 +47,74 @@
 }
 
 /* ===================================
+   FILE UPLOAD STYLES
+   =================================== */
+
+.upload-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.upload-controls {
+    display: flex;
+    gap: var(--space-sm);
+    align-items: center;
+}
+
+.upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.upload-btn-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.file-preview {
+    margin-top: var(--space-md);
+    padding: var(--space-md);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px dashed var(--glass-border);
+    border-radius: var(--radius-md);
+    display: none;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.file-preview.active {
+    display: flex;
+}
+
+.preview-thumb {
+    width: 60px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+}
+
+.preview-info {
+    flex: 1;
+    font-size: var(--text-sm);
+    color: rgba(255, 255, 255, 0.7);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.preview-remove {
+    color: #ef4444;
+    cursor: pointer;
+    font-size: var(--text-lg);
+}
+
+/* ===================================
    ADMIN DASHBOARD LAYOUT
    =================================== */
 

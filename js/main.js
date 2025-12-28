@@ -262,11 +262,32 @@ function openVideoModal(video) {
         modalContent.classList.remove('vertical');
     }
 
+    // Link processing for common platforms
+    let finalVideoUrl = video.videoUrl;
+
+    // Handle Google Drive Links
+    if (finalVideoUrl.includes('drive.google.com')) {
+        // Convert /view or /open to /preview for embedding
+        if (finalVideoUrl.includes('/view')) {
+            finalVideoUrl = finalVideoUrl.replace(/\/view.*$/, '/preview');
+        } else if (finalVideoUrl.includes('id=')) {
+            const idMatch = finalVideoUrl.match(/id=([^&]+)/);
+            if (idMatch) {
+                finalVideoUrl = `https://drive.google.com/file/d/${idMatch[1]}/preview`;
+            }
+        } else if (finalVideoUrl.includes('/file/d/')) {
+            const idMatch = finalVideoUrl.match(/\/file\/d\/([^/]+)/);
+            if (idMatch) {
+                finalVideoUrl = `https://drive.google.com/file/d/${idMatch[1]}/preview`;
+            }
+        }
+    }
+
     // Set video content
-    if (video.videoUrl.includes('youtube.com') || video.videoUrl.includes('youtu.be')) {
+    if (finalVideoUrl.includes('youtube.com') || finalVideoUrl.includes('youtu.be') || finalVideoUrl.includes('drive.google.com')) {
         modalPlayer.innerHTML = `
             <iframe 
-                src="${video.videoUrl}?autoplay=1" 
+                src="${finalVideoUrl}${finalVideoUrl.includes('?') ? '&' : '?'}autoplay=1" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                 allowfullscreen>
             </iframe>
@@ -274,7 +295,7 @@ function openVideoModal(video) {
     } else {
         modalPlayer.innerHTML = `
             <video controls autoplay>
-                <source src="${video.videoUrl}" type="video/mp4">
+                <source src="${finalVideoUrl}" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         `;
@@ -314,11 +335,9 @@ function initContactForm() {
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
 
-            const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                message: document.getElementById('message').value
-            };
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
 
             // Show loading state
             const submitBtn = form.querySelector('button[type="submit"]');
@@ -326,25 +345,48 @@ function initContactForm() {
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
             submitBtn.disabled = true;
 
-            // Simulate form submission (replace with actual backend call)
-            setTimeout(() => {
-                // Success
-                submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
-                submitBtn.style.background = 'linear-gradient(135deg, #10b981 0%, #059669 100%)';
+            try {
+                // 1. Send via FormSubmit (Email)
+                const formData = new FormData(form);
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
 
-                // Reset form
-                form.reset();
+                if (response.ok) {
+                    // 2. Open WhatsApp (Automatic)
+                    const whatsappNumber = "916363278962";
+                    const whatsappMessage = `Hello Nehal!%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Email:* ${encodeURIComponent(email)}%0A*Message:* ${encodeURIComponent(message)}`;
+                    window.open(`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`, '_blank');
 
-                // Reset button after 3 seconds
+                    // Success UI
+                    submitBtn.innerHTML = '<i class="fas fa-check"></i> Sent to Email & WhatsApp!';
+                    submitBtn.style.background = 'linear-gradient(135deg, #10b981 0%, #059669 100%)';
+
+                    // Reset form
+                    form.reset();
+
+                    // Show success notification
+                    showNotification('Messages sent successfully!', 'success');
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                submitBtn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Error Sending';
+                submitBtn.style.background = '#ef4444';
+                showNotification('Something went wrong. Please try again.', 'error');
+            } finally {
+                // Reset button after 5 seconds
                 setTimeout(() => {
                     submitBtn.innerHTML = originalText;
                     submitBtn.disabled = false;
                     submitBtn.style.background = '';
-                }, 3000);
-
-                // Show success message
-                showNotification('Message sent successfully! We\'ll get back to you soon.', 'success');
-            }, 1500);
+                }, 5000);
+            }
         });
     }
 }

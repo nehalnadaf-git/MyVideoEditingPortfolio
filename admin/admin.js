@@ -61,6 +61,7 @@ function initializeAdminPanel() {
     initSidebarNavigation();
     initVideoManagement();
     initContentManagement();
+    initFileUploads();
     initSettings();
     initTabs();
 }
@@ -140,13 +141,8 @@ function initSidebarNavigation() {
 // ===================================
 
 function initVideoManagement() {
-    const addVideoBtn = document.getElementById('addVideoBtn');
-    const videoForm = document.getElementById('videoForm');
-    const modalClose = document.getElementById('modalClose');
-    const cancelVideoBtn = document.getElementById('cancelVideoBtn');
-    const exportDataBtn = document.getElementById('exportDataBtn');
-    const importDataBtn = document.getElementById('importDataBtn');
     const importFileInput = document.getElementById('importFileInput');
+    const clearAllVideosBtn = document.getElementById('clearAllVideosBtn');
 
     if (addVideoBtn) {
         addVideoBtn.addEventListener('click', () => {
@@ -179,6 +175,10 @@ function initVideoManagement() {
 
     if (importFileInput) {
         importFileInput.addEventListener('change', handleImportData);
+    }
+
+    if (clearAllVideosBtn) {
+        clearAllVideosBtn.addEventListener('click', handleClearAllVideos);
     }
 
     loadVideosList();
@@ -283,6 +283,23 @@ function openVideoModal(video = null) {
 
     modal.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
+
+    // Clear any previous previews
+    resetFileUploadStates();
+}
+
+function resetFileUploadStates() {
+    const thumbPreview = document.getElementById('thumbPreview');
+    const videoPreview = document.getElementById('videoPreview');
+
+    if (thumbPreview) thumbPreview.classList.remove('active');
+    if (videoPreview) videoPreview.classList.remove('active');
+
+    const thumbUpload = document.getElementById('thumbUpload');
+    const videoUpload = document.getElementById('videoUpload');
+
+    if (thumbUpload) thumbUpload.value = '';
+    if (videoUpload) videoUpload.value = '';
 }
 
 function closeVideoModal() {
@@ -345,6 +362,14 @@ window.toggleVideoVisibility = function (id) {
         showNotification(`Video ${video.visible ? 'shown' : 'hidden'} successfully!`, 'success');
     }
 };
+
+function handleClearAllVideos() {
+    if (confirm('Are you sure you want to delete ALL videos? This cannot be undone.')) {
+        dataManager.saveVideos([]);
+        loadVideosList();
+        showNotification('All videos cleared! You can now start fresh.', 'success');
+    }
+}
 
 // ===================================
 // CONTENT MANAGEMENT
@@ -642,5 +667,80 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// ===================================
+// FILE UPLOAD SIMULATION
+// ===================================
+
+function initFileUploads() {
+    const thumbUpload = document.getElementById('thumbUpload');
+    const videoUpload = document.getElementById('videoUpload');
+    const removeThumb = document.getElementById('removeThumb');
+    const removeVideo = document.getElementById('removeVideo');
+
+    if (thumbUpload) {
+        thumbUpload.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const videoThumbnail = document.getElementById('videoThumbnail');
+                const thumbPreview = document.getElementById('thumbPreview');
+                const previewImg = thumbPreview.querySelector('img');
+                const previewInfo = thumbPreview.querySelector('.preview-info');
+
+                // Set path to assets folder
+                const path = `assets/${file.name}`;
+                videoThumbnail.value = path;
+
+                // Show preview
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    previewImg.src = e.target.result;
+                    previewInfo.textContent = file.name;
+                    thumbPreview.classList.add('active');
+                };
+                reader.readAsDataURL(file);
+
+                showNotification('File selected. Remember to move it to your assets folder!', 'info');
+            }
+        });
+    }
+
+    if (videoUpload) {
+        videoUpload.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const videoUrl = document.getElementById('videoUrl');
+                const videoPreview = document.getElementById('videoPreview');
+                const previewInfo = videoPreview.querySelector('.preview-info');
+
+                // Set path to assets folder
+                const path = `assets/${file.name}`;
+                videoUrl.value = path;
+
+                // Show preview
+                previewInfo.textContent = file.name;
+                videoPreview.classList.add('active');
+
+                showNotification('Video selected. Remember to move it to your assets folder!', 'info');
+            }
+        });
+    }
+
+    if (removeThumb) {
+        removeThumb.addEventListener('click', () => {
+            document.getElementById('thumbUpload').value = '';
+            document.getElementById('videoThumbnail').value = '';
+            document.getElementById('thumbPreview').classList.remove('active');
+        });
+    }
+
+    if (removeVideo) {
+        removeVideo.addEventListener('click', () => {
+            document.getElementById('videoUpload').value = '';
+            document.getElementById('videoUrl').value = '';
+            document.getElementById('videoPreview').classList.remove('active');
+        });
+    }
+}
 
 console.log('🎬 Admin Panel initialized successfully!');

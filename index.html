@@ -105,15 +105,12 @@
     <section class="section" id="about">
         <div class="container">
             <div class="section-header reveal">
-                <h2 class="section-title">About Me</h2>
-                <p class="section-subtitle">
-                    4+ years of experience in video editing and content creation
-                </p>
+                <h2 class="section-title">About me</h2>
             </div>
 
             <div class="about-content reveal">
                 <div class="about-image">
-                    <img src="assets/editor-photo.jpg" alt="Video Editor" id="aboutImage">
+                    <img src="assets/nehal-photo.jpg" alt="Nehal Nadaf" id="aboutImage">
                 </div>
                 <div class="about-text">
                     <h3 id="aboutHeading">Bringing Your Vision to Life</h3>
@@ -239,7 +236,13 @@
             </div>
 
             <div class="contact-content reveal">
-                <form class="contact-form" id="contactForm">
+                <form class="contact-form" id="contactForm" action="https://formsubmit.co/mailnehalfx@gmail.com"
+                    method="POST">
+                    <!-- Hidden configuration fields for FormSubmit -->
+                    <input type="hidden" name="_cc" value="contact@nehalnadaf.com">
+                    <input type="hidden" name="_subject" value="New Portfolio Inquiry!">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="false">
                     <div class="form-group">
                         <label for="name" class="form-label">Your Name</label>
                         <input type="text" id="name" name="name" class="form-input" required placeholder="John Doe">

@@ -141,7 +141,7 @@ video-portfolio/
 │   └── admin.js              # Admin functionality
 │
 └── assets/
-    └── editor-photo.jpg      # About section image
+    └── nehal-photo.jpg       # About section image
 ```
 
 ---

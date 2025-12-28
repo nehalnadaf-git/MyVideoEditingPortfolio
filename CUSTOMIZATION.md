@@ -328,7 +328,7 @@ let videosPerPage = 9;  // Change to 6, 12, 15, etc.
 
 **Method 2: Local File**
 1. Add your photo to `assets/` folder
-2. Name it `editor-photo.jpg`
+2. Name it `nehal-photo.jpg`
 3. It will automatically display
 
 ### Change Favicon
