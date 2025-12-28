@@ -734,6 +734,33 @@ a:hover {
     transform: rotate(90deg);
 }
 
+.video-loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.video-loader i {
+    font-size: 3rem;
+    margin-bottom: var(--space-md);
+    color: var(--color-accent-primary);
+    filter: drop-shadow(0 0 10px var(--color-accent-primary));
+}
+
+.video-loader p {
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    margin: 0;
+    opacity: 0.8;
+}
+
 /* ===================================
    SERVICES GRID
    =================================== */

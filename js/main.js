@@ -255,6 +255,14 @@ function openVideoModal(video) {
 
     if (!modal) return;
 
+    // Show loading state immediately in the player container
+    modalPlayer.innerHTML = `
+        <div class="video-loader">
+            <i class="fas fa-spinner fa-spin"></i>
+            <p>Loading Video...</p>
+        </div>
+    `;
+
     // Set orientation class
     if (video.orientation === 'vertical') {
         modalContent.classList.add('vertical');
@@ -267,7 +275,6 @@ function openVideoModal(video) {
 
     // Handle Google Drive Links
     if (finalVideoUrl.includes('drive.google.com')) {
-        // Convert /view or /open to /preview for embedding
         if (finalVideoUrl.includes('/view')) {
             finalVideoUrl = finalVideoUrl.replace(/\/view.*$/, '/preview');
         } else if (finalVideoUrl.includes('id=')) {
@@ -284,22 +291,34 @@ function openVideoModal(video) {
     }
 
     // Set video content
-    if (finalVideoUrl.includes('youtube.com') || finalVideoUrl.includes('youtu.be') || finalVideoUrl.includes('drive.google.com')) {
-        modalPlayer.innerHTML = `
-            <iframe 
-                src="${finalVideoUrl}${finalVideoUrl.includes('?') ? '&' : '?'}autoplay=1" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen>
-            </iframe>
-        `;
-    } else {
-        modalPlayer.innerHTML = `
-            <video controls autoplay>
-                <source src="${finalVideoUrl}" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        `;
-    }
+    setTimeout(() => {
+        if (finalVideoUrl.includes('youtube.com') || finalVideoUrl.includes('youtu.be') || finalVideoUrl.includes('drive.google.com')) {
+            modalPlayer.innerHTML = `
+                <iframe 
+                    src="${finalVideoUrl}${finalVideoUrl.includes('?') ? '&' : '?'}autoplay=1&rel=0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen
+                    style="border: none; opacity: 0; transition: opacity 0.5s ease-in-out;"
+                    onload="this.style.opacity='1'; const loader = this.parentElement.querySelector('.video-loader'); if(loader) loader.remove();">
+                </iframe>
+                <div class="video-loader">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Connecting to Google Drive...</p>
+                </div>
+            `;
+        } else {
+            modalPlayer.innerHTML = `
+                <video controls autoplay oncanplay="const loader = this.parentElement.querySelector('.video-loader'); if(loader) loader.remove();">
+                    <source src="${finalVideoUrl}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="video-loader">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Loading Asset...</p>
+                </div>
+            `;
+        }
+    }, 100);
 
     // Set video info
     modalTitle.textContent = video.title;
