@@ -3,6 +3,9 @@
 // Local Storage based content system
 // ===================================
 
+// Versioning to force updates when needed
+const DATA_VERSION = '2025-12-28-v1';
+
 // Default portfolio data
 const defaultVideos = [
     {
@@ -246,18 +249,24 @@ class DataManager {
     constructor() {
         this.VIDEOS_KEY = 'portfolio_videos';
         this.CONTENT_KEY = 'site_content';
+        this.VERSION_KEY = 'portfolio_data_version';
         this.initializeData();
     }
 
-    // Initialize data if not exists
+    // Initialize data if not exists or if version mismatch
     initializeData() {
-        if (!localStorage.getItem(this.VIDEOS_KEY)) {
+        const savedVersion = localStorage.getItem(this.VERSION_KEY);
+
+        // If version is missing or outdated, force a reset to latest code defaults
+        // This ensures updates to js/data.js are reflected for all users
+        if (savedVersion !== DATA_VERSION || !localStorage.getItem(this.VIDEOS_KEY)) {
+            console.log('Synchronizing portfolio data to version:', DATA_VERSION);
             this.saveVideos(defaultVideos);
-        }
-        if (!localStorage.getItem(this.CONTENT_KEY)) {
             this.saveSiteContent(defaultSiteContent);
+            localStorage.setItem(this.VERSION_KEY, DATA_VERSION);
         }
     }
+
 
     // Video CRUD operations
     getVideos() {
