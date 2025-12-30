@@ -256,10 +256,13 @@ function openVideoModal(video) {
     if (!modal) return;
 
     // Show loading state immediately in the player container
+    modalPlayer.style.backgroundImage = `url(${video.thumbnail})`;
+    modalPlayer.style.backgroundSize = 'cover';
+    modalPlayer.style.backgroundPosition = 'center';
     modalPlayer.innerHTML = `
-        <div class="video-loader">
+        <div class="video-loader" style="background: rgba(0,0,0,0.4); width: 100%; height: 100%; backdrop-filter: blur(5px);">
             <i class="fas fa-spinner fa-spin"></i>
-            <p>Loading Video...</p>
+            <p>Optimizing Player...</p>
         </div>
     `;
 
@@ -272,49 +275,69 @@ function openVideoModal(video) {
 
     // Link processing for common platforms
     let finalVideoUrl = video.videoUrl;
+    let isGoogleDrive = false;
+    let googleDriveId = '';
 
     // Handle Google Drive Links
     if (finalVideoUrl.includes('drive.google.com')) {
+        isGoogleDrive = true;
         if (finalVideoUrl.includes('/view')) {
+            googleDriveId = finalVideoUrl.split('/d/')[1]?.split('/')[0] || '';
             finalVideoUrl = finalVideoUrl.replace(/\/view.*$/, '/preview');
         } else if (finalVideoUrl.includes('id=')) {
             const idMatch = finalVideoUrl.match(/id=([^&]+)/);
             if (idMatch) {
-                finalVideoUrl = `https://drive.google.com/file/d/${idMatch[1]}/preview`;
+                googleDriveId = idMatch[1];
+                finalVideoUrl = `https://drive.google.com/file/d/${googleDriveId}/preview`;
             }
         } else if (finalVideoUrl.includes('/file/d/')) {
             const idMatch = finalVideoUrl.match(/\/file\/d\/([^/]+)/);
             if (idMatch) {
-                finalVideoUrl = `https://drive.google.com/file/d/${idMatch[1]}/preview`;
+                googleDriveId = idMatch[1];
+                finalVideoUrl = `https://drive.google.com/file/d/${googleDriveId}/preview`;
             }
         }
     }
 
     // Set video content
     setTimeout(() => {
-        if (finalVideoUrl.includes('youtube.com') || finalVideoUrl.includes('youtu.be') || finalVideoUrl.includes('drive.google.com')) {
+        const isYoutube = finalVideoUrl.includes('youtube.com') || finalVideoUrl.includes('youtu.be');
+
+        if (isYoutube || isGoogleDrive) {
+            // Use iframe for embedded players
+            let embedUrl = finalVideoUrl;
+
+            // Add necessary params for autoplay and speed
+            if (isYoutube) {
+                const separator = embedUrl.includes('?') ? '&' : '?';
+                embedUrl = `${embedUrl}${separator}autoplay=1&rel=0&modestbranding=1`;
+            } else if (isGoogleDrive) {
+                // Google Drive /preview doesn't support many params, but let's keep it clean
+            }
+
             modalPlayer.innerHTML = `
                 <iframe 
-                    src="${finalVideoUrl}${finalVideoUrl.includes('?') ? '&' : '?'}autoplay=1&rel=0" 
+                    src="${embedUrl}" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                     allowfullscreen
                     style="border: none; opacity: 0; transition: opacity 0.5s ease-in-out;"
-                    onload="this.style.opacity='1'; const loader = this.parentElement.querySelector('.video-loader'); if(loader) loader.remove();">
+                    onload="this.style.opacity='1'; const loader = this.parentElement.querySelector('.video-loader'); if(loader) loader.remove(); this.parentElement.style.backgroundImage='none';">
                 </iframe>
                 <div class="video-loader">
                     <i class="fas fa-spinner fa-spin"></i>
-                    <p>Connecting to Google Drive...</p>
+                    <p>Optimizing Player...</p>
                 </div>
             `;
         } else {
+            // Use native video tag for direct files
             modalPlayer.innerHTML = `
-                <video controls autoplay oncanplay="const loader = this.parentElement.querySelector('.video-loader'); if(loader) loader.remove();">
+                <video controls autoplay playsinline oncanplay="const loader = this.parentElement.querySelector('.video-loader'); if(loader) loader.remove(); this.parentElement.style.backgroundImage='none';">
                     <source src="${finalVideoUrl}" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
                 <div class="video-loader">
                     <i class="fas fa-spinner fa-spin"></i>
-                    <p>Loading Asset...</p>
+                    <p>Loading Video...</p>
                 </div>
             `;
         }
