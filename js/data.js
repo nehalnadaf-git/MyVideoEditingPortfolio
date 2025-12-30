@@ -4,10 +4,94 @@
 // ===================================
 
 // Versioning to force updates when needed
-const DATA_VERSION = '2025-12-28-v1';
+const DATA_VERSION = '2025-12-30-v1';
 
 // Default portfolio data
 const defaultVideos = [
+    {
+        id: 4,
+        title: "Tajweed Lessons",
+        description: "Learning the beautiful art of Quranic recitation with proper Tajweed rules.",
+        thumbnail: "https://drive.google.com/thumbnail?id=1v-Wn5uUkVc8nW9qkIn3dAh8_-XHAN37Y&sz=w1000",
+        videoUrl: "https://drive.google.com/file/d/1v-Wn5uUkVc8nW9qkIn3dAh8_-XHAN37Y/view?usp=drive_link",
+        orientation: "vertical",
+        category: "Education",
+        platform: "instagram",
+        featured: false,
+        visible: true
+    },
+    {
+        id: 9,
+        title: "Ameer bin Ishaq",
+        description: "Exploring the legacy and impact of Ameer bin Ishaq through cinematic visuals.",
+        thumbnail: "https://drive.google.com/thumbnail?id=1_ba09GhU55ERvUNEw0iodestsGLjZ5t-&sz=w1000",
+        videoUrl: "https://drive.google.com/file/d/1_ba09GhU55ERvUNEw0iodestsGLjZ5t-/view?usp=drive_link",
+        orientation: "vertical",
+        category: "Portrait",
+        platform: "instagram",
+        featured: false,
+        visible: true
+    },
+    {
+        id: 14,
+        title: "Clouds Miracle",
+        description: "A breathtaking look at the wonders of nature in the sky.",
+        thumbnail: "https://drive.google.com/thumbnail?id=1xwWUniyqL7BugnKthNQFKRR1Ub4nprgm&sz=w1000",
+        videoUrl: "https://drive.google.com/file/d/1xwWUniyqL7BugnKthNQFKRR1Ub4nprgm/view?usp=drive_link",
+        orientation: "vertical",
+        category: "Nature",
+        platform: "instagram",
+        featured: false,
+        visible: true
+    },
+    {
+        id: 8,
+        title: "Falasteen - Resilience",
+        description: "A moving tribute to the strength and spirit of the people of Palestine.",
+        thumbnail: "https://drive.google.com/thumbnail?id=1vOeJ_fbHd91LNNcUZ9b1_T8A-qZzP9sC&sz=w1000",
+        videoUrl: "https://drive.google.com/file/d/1vOeJ_fbHd91LNNcUZ9b1_T8A-qZzP9sC/view?usp=drive_link",
+        orientation: "vertical",
+        category: "Documentary",
+        platform: "instagram",
+        featured: true,
+        visible: true
+    },
+    {
+        id: 13,
+        title: "YouthCare - Part 2",
+        description: "Continuing the mission of YouthCare with new initiatives and stories.",
+        thumbnail: "https://drive.google.com/thumbnail?id=1GelS7-HyDNbkplTyShf135KQLPuF6cKc&sz=w1000",
+        videoUrl: "https://drive.google.com/file/d/1GelS7-HyDNbkplTyShf135KQLPuF6cKc/view?usp=drive_link",
+        orientation: "vertical",
+        category: "Awareness",
+        platform: "instagram",
+        featured: false,
+        visible: true
+    },
+    {
+        id: 12,
+        title: "TPF Advertisement",
+        description: "High-impact advertisement showcasing the core values of TPF.",
+        thumbnail: "https://drive.google.com/thumbnail?id=1CU2jPEZtidl6KtsL0MzpT4cxG8hWoURw&sz=w1000",
+        videoUrl: "https://drive.google.com/file/d/1CU2jPEZtidl6KtsL0MzpT4cxG8hWoURw/view?usp=drive_link",
+        orientation: "vertical",
+        category: "Ad",
+        platform: "instagram",
+        featured: false,
+        visible: true
+    },
+    {
+        id: 11,
+        title: "TPF Promo 2025",
+        description: "The official promotional highlights for the TPF conference.",
+        thumbnail: "https://drive.google.com/thumbnail?id=1kjGfrZtJyWJy6gZAUVL5LsLpWW7zMjil&sz=w1000",
+        videoUrl: "https://drive.google.com/file/d/1kjGfrZtJyWJy6gZAUVL5LsLpWW7zMjil/view?usp=drive_link",
+        orientation: "vertical",
+        category: "Promo",
+        platform: "instagram",
+        featured: true,
+        visible: true
+    },
     {
         id: 1,
         title: "All Sea food permisible?",
@@ -40,18 +124,6 @@ const defaultVideos = [
         videoUrl: "https://drive.google.com/file/d/1NevVasp0_oxZTc44U5T8L3m-r3hBl8r6/view?usp=drive_link",
         orientation: "vertical",
         category: "Question",
-        platform: "instagram",
-        featured: false,
-        visible: true
-    },
-    {
-        id: 4,
-        title: "Tajweed Lessons",
-        description: "Learning the beautiful art of Quranic recitation with proper Tajweed rules.",
-        thumbnail: "https://drive.google.com/thumbnail?id=1v-Wn5uUkVc8nW9qkIn3dAh8_-XHAN37Y&sz=w1000",
-        videoUrl: "https://drive.google.com/file/d/1v-Wn5uUkVc8nW9qkIn3dAh8_-XHAN37Y/view?usp=drive_link",
-        orientation: "vertical",
-        category: "Education",
         platform: "instagram",
         featured: false,
         visible: true
@@ -93,30 +165,6 @@ const defaultVideos = [
         visible: true
     },
     {
-        id: 8,
-        title: "Falasteen - Resilience",
-        description: "A moving tribute to the strength and spirit of the people of Palestine.",
-        thumbnail: "https://drive.google.com/thumbnail?id=1vOeJ_fbHd91LNNcUZ9b1_T8A-qZzP9sC&sz=w1000",
-        videoUrl: "https://drive.google.com/file/d/1vOeJ_fbHd91LNNcUZ9b1_T8A-qZzP9sC/view?usp=drive_link",
-        orientation: "vertical",
-        category: "Documentary",
-        platform: "instagram",
-        featured: true,
-        visible: true
-    },
-    {
-        id: 9,
-        title: "Ameer bin Ishaq",
-        description: "Exploring the legacy and impact of Ameer bin Ishaq through cinematic visuals.",
-        thumbnail: "https://drive.google.com/thumbnail?id=1_ba09GhU55ERvUNEw0iodestsGLjZ5t-&sz=w1000",
-        videoUrl: "https://drive.google.com/file/d/1_ba09GhU55ERvUNEw0iodestsGLjZ5t-/view?usp=drive_link",
-        orientation: "vertical",
-        category: "Portrait",
-        platform: "instagram",
-        featured: false,
-        visible: true
-    },
-    {
         id: 10,
         title: "Eye Blessing",
         description: "A spiritual reflection on the gift of sight and its deeper meaning.",
@@ -124,54 +172,6 @@ const defaultVideos = [
         videoUrl: "https://drive.google.com/file/d/14Uuu9-lQ1IRT6vd3cu-vCLBueHFK2qkq/view?usp=drive_link",
         orientation: "vertical",
         category: "Reflection",
-        platform: "instagram",
-        featured: false,
-        visible: true
-    },
-    {
-        id: 11,
-        title: "TPF Promo 2025",
-        description: "The official promotional highlights for the TPF conference.",
-        thumbnail: "https://drive.google.com/thumbnail?id=1kjGfrZtJyWJy6gZAUVL5LsLpWW7zMjil&sz=w1000",
-        videoUrl: "https://drive.google.com/file/d/1kjGfrZtJyWJy6gZAUVL5LsLpWW7zMjil/view?usp=drive_link",
-        orientation: "vertical",
-        category: "Promo",
-        platform: "instagram",
-        featured: true,
-        visible: true
-    },
-    {
-        id: 12,
-        title: "TPF Advertisement",
-        description: "High-impact advertisement showcasing the core values of TPF.",
-        thumbnail: "https://drive.google.com/thumbnail?id=1CU2jPEZtidl6KtsL0MzpT4cxG8hWoURw&sz=w1000",
-        videoUrl: "https://drive.google.com/file/d/1CU2jPEZtidl6KtsL0MzpT4cxG8hWoURw/view?usp=drive_link",
-        orientation: "vertical",
-        category: "Ad",
-        platform: "instagram",
-        featured: false,
-        visible: true
-    },
-    {
-        id: 13,
-        title: "YouthCare - Part 2",
-        description: "Continuing the mission of YouthCare with new initiatives and stories.",
-        thumbnail: "https://drive.google.com/thumbnail?id=1GelS7-HyDNbkplTyShf135KQLPuF6cKc&sz=w1000",
-        videoUrl: "https://drive.google.com/file/d/1GelS7-HyDNbkplTyShf135KQLPuF6cKc/view?usp=drive_link",
-        orientation: "vertical",
-        category: "Awareness",
-        platform: "instagram",
-        featured: false,
-        visible: true
-    },
-    {
-        id: 14,
-        title: "Clouds Miracle",
-        description: "A breathtaking look at the wonders of nature in the sky.",
-        thumbnail: "https://drive.google.com/thumbnail?id=1xwWUniyqL7BugnKthNQFKRR1Ub4nprgm&sz=w1000",
-        videoUrl: "https://drive.google.com/file/d/1xwWUniyqL7BugnKthNQFKRR1Ub4nprgm/view?usp=drive_link",
-        orientation: "vertical",
-        category: "Nature",
         platform: "instagram",
         featured: false,
         visible: true
