@@ -4,10 +4,22 @@
 // ===================================
 
 // Versioning to force updates when needed
-const DATA_VERSION = '2025-12-30-v2';
+const DATA_VERSION = '2025-12-30-v3';
 
 // Default portfolio data
 const defaultVideos = [
+    {
+        id: 14,
+        title: "Clouds Miracle",
+        description: "A breathtaking look at the wonders of nature in the sky.",
+        thumbnail: "https://drive.google.com/thumbnail?id=1xwWUniyqL7BugnKthNQFKRR1Ub4nprgm&sz=w1000",
+        videoUrl: "https://drive.google.com/file/d/1xwWUniyqL7BugnKthNQFKRR1Ub4nprgm/view?usp=drive_link",
+        orientation: "vertical",
+        category: "Nature",
+        platform: "instagram",
+        featured: false,
+        visible: true
+    },
     {
         id: 4,
         title: "Tajweed Lessons",
@@ -102,18 +114,6 @@ const defaultVideos = [
         category: "Institution",
         platform: "youtube",
         featured: true,
-        visible: true
-    },
-    {
-        id: 14,
-        title: "Clouds Miracle",
-        description: "A breathtaking look at the wonders of nature in the sky.",
-        thumbnail: "https://drive.google.com/thumbnail?id=1xwWUniyqL7BugnKthNQFKRR1Ub4nprgm&sz=w1000",
-        videoUrl: "https://drive.google.com/file/d/1xwWUniyqL7BugnKthNQFKRR1Ub4nprgm/view?usp=drive_link",
-        orientation: "vertical",
-        category: "Nature",
-        platform: "instagram",
-        featured: false,
         visible: true
     },
     {
