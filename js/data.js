@@ -4,7 +4,7 @@
 // ===================================
 
 // Versioning to force updates when needed
-const DATA_VERSION = '2025-12-30-v1';
+const DATA_VERSION = '2025-12-30-v2';
 
 // Default portfolio data
 const defaultVideos = [
@@ -33,13 +33,13 @@ const defaultVideos = [
         visible: true
     },
     {
-        id: 14,
-        title: "Clouds Miracle",
-        description: "A breathtaking look at the wonders of nature in the sky.",
-        thumbnail: "https://drive.google.com/thumbnail?id=1xwWUniyqL7BugnKthNQFKRR1Ub4nprgm&sz=w1000",
-        videoUrl: "https://drive.google.com/file/d/1xwWUniyqL7BugnKthNQFKRR1Ub4nprgm/view?usp=drive_link",
+        id: 5,
+        title: "Huroof Mastery",
+        description: "Mastering the Arabic alphabet with clear pronunciation and visual guidance.",
+        thumbnail: "https://drive.google.com/thumbnail?id=1HR-ILmZokr4qCPnydropMk8lWShmNa3r&sz=w1000",
+        videoUrl: "https://drive.google.com/file/d/1HR-ILmZokr4qCPnydropMk8lWShmNa3r/view?usp=drive_link",
         orientation: "vertical",
-        category: "Nature",
+        category: "Education",
         platform: "instagram",
         featured: false,
         visible: true
@@ -57,25 +57,13 @@ const defaultVideos = [
         visible: true
     },
     {
-        id: 13,
-        title: "YouthCare - Part 2",
-        description: "Continuing the mission of YouthCare with new initiatives and stories.",
-        thumbnail: "https://drive.google.com/thumbnail?id=1GelS7-HyDNbkplTyShf135KQLPuF6cKc&sz=w1000",
-        videoUrl: "https://drive.google.com/file/d/1GelS7-HyDNbkplTyShf135KQLPuF6cKc/view?usp=drive_link",
+        id: 15,
+        title: "The Forest Path - Cinematic Reflection",
+        description: "A serene journey through nature, capturing the peace and beauty of the wilderness.",
+        thumbnail: "https://drive.google.com/thumbnail?id=1rnAzLb5uejZAFpkZ9txbDfmW6kDqNH2A&sz=w1000",
+        videoUrl: "https://drive.google.com/file/d/1rnAzLb5uejZAFpkZ9txbDfmW6kDqNH2A/view?usp=sharing",
         orientation: "vertical",
-        category: "Awareness",
-        platform: "instagram",
-        featured: false,
-        visible: true
-    },
-    {
-        id: 12,
-        title: "TPF Advertisement",
-        description: "High-impact advertisement showcasing the core values of TPF.",
-        thumbnail: "https://drive.google.com/thumbnail?id=1CU2jPEZtidl6KtsL0MzpT4cxG8hWoURw&sz=w1000",
-        videoUrl: "https://drive.google.com/file/d/1CU2jPEZtidl6KtsL0MzpT4cxG8hWoURw/view?usp=drive_link",
-        orientation: "vertical",
-        category: "Ad",
+        category: "Nature",
         platform: "instagram",
         featured: false,
         visible: true
@@ -93,15 +81,15 @@ const defaultVideos = [
         visible: true
     },
     {
-        id: 1,
-        title: "All Sea food permisible?",
-        description: "An engaging Q&A session about Islamic dietary laws regarding seafood.",
-        thumbnail: "https://drive.google.com/thumbnail?id=1Jk89fRsOxdWW2MOkVpH1DhM0Qlzw57Oe&sz=w1000",
-        videoUrl: "https://drive.google.com/file/d/1Jk89fRsOxdWW2MOkVpH1DhM0Qlzw57Oe/view?usp=drive_link",
+        id: 10,
+        title: "Eye Blessing",
+        description: "A spiritual reflection on the gift of sight and its deeper meaning.",
+        thumbnail: "https://drive.google.com/thumbnail?id=14Uuu9-lQ1IRT6vd3cu-vCLBueHFK2qkq&sz=w1000",
+        videoUrl: "https://drive.google.com/file/d/14Uuu9-lQ1IRT6vd3cu-vCLBueHFK2qkq/view?usp=drive_link",
         orientation: "vertical",
-        category: "Islam Q&A",
+        category: "Reflection",
         platform: "instagram",
-        featured: true,
+        featured: false,
         visible: true
     },
     {
@@ -117,6 +105,54 @@ const defaultVideos = [
         visible: true
     },
     {
+        id: 14,
+        title: "Clouds Miracle",
+        description: "A breathtaking look at the wonders of nature in the sky.",
+        thumbnail: "https://drive.google.com/thumbnail?id=1xwWUniyqL7BugnKthNQFKRR1Ub4nprgm&sz=w1000",
+        videoUrl: "https://drive.google.com/file/d/1xwWUniyqL7BugnKthNQFKRR1Ub4nprgm/view?usp=drive_link",
+        orientation: "vertical",
+        category: "Nature",
+        platform: "instagram",
+        featured: false,
+        visible: true
+    },
+    {
+        id: 12,
+        title: "TPF Advertisement",
+        description: "High-impact advertisement showcasing the core values of TPF.",
+        thumbnail: "https://drive.google.com/thumbnail?id=1CU2jPEZtidl6KtsL0MzpT4cxG8hWoURw&sz=w1000",
+        videoUrl: "https://drive.google.com/file/d/1CU2jPEZtidl6KtsL0MzpT4cxG8hWoURw/view?usp=drive_link",
+        orientation: "vertical",
+        category: "Ad",
+        platform: "instagram",
+        featured: false,
+        visible: true
+    },
+    {
+        id: 13,
+        title: "YouthCare - Part 2",
+        description: "Continuing the mission of YouthCare with new initiatives and stories.",
+        thumbnail: "https://drive.google.com/thumbnail?id=1GelS7-HyDNbkplTyShf135KQLPuF6cKc&sz=w1000",
+        videoUrl: "https://drive.google.com/file/d/1GelS7-HyDNbkplTyShf135KQLPuF6cKc/view?usp=drive_link",
+        orientation: "vertical",
+        category: "Awareness",
+        platform: "instagram",
+        featured: false,
+        visible: true
+    },
+    {
+        id: 1,
+        title: "All Sea food permisible?",
+        description: "An engaging Q&A session about Islamic dietary laws regarding seafood.",
+        thumbnail: "https://drive.google.com/thumbnail?id=1Jk89fRsOxdWW2MOkVpH1DhM0Qlzw57Oe&sz=w1000",
+        videoUrl: "https://drive.google.com/file/d/1Jk89fRsOxdWW2MOkVpH1DhM0Qlzw57Oe/view?usp=drive_link",
+        orientation: "vertical",
+        category: "Islam Q&A",
+        platform: "instagram",
+        featured: true,
+        visible: true
+    },
+    {
         id: 3,
         title: "Jawab kaisa denge?",
         description: "A thought-provoking message on personal accountability and faith.",
@@ -124,18 +160,6 @@ const defaultVideos = [
         videoUrl: "https://drive.google.com/file/d/1NevVasp0_oxZTc44U5T8L3m-r3hBl8r6/view?usp=drive_link",
         orientation: "vertical",
         category: "Question",
-        platform: "instagram",
-        featured: false,
-        visible: true
-    },
-    {
-        id: 5,
-        title: "Huroof Mastery",
-        description: "Mastering the Arabic alphabet with clear pronunciation and visual guidance.",
-        thumbnail: "https://drive.google.com/thumbnail?id=1HR-ILmZokr4qCPnydropMk8lWShmNa3r&sz=w1000",
-        videoUrl: "https://drive.google.com/file/d/1HR-ILmZokr4qCPnydropMk8lWShmNa3r/view?usp=drive_link",
-        orientation: "vertical",
-        category: "Education",
         platform: "instagram",
         featured: false,
         visible: true
@@ -160,18 +184,6 @@ const defaultVideos = [
         videoUrl: "https://drive.google.com/file/d/1v2-ZLWXgCZ1C-IBSph16_Ya1kwbTx4F5/view?usp=drive_link",
         orientation: "vertical",
         category: "Social",
-        platform: "instagram",
-        featured: false,
-        visible: true
-    },
-    {
-        id: 10,
-        title: "Eye Blessing",
-        description: "A spiritual reflection on the gift of sight and its deeper meaning.",
-        thumbnail: "https://drive.google.com/thumbnail?id=14Uuu9-lQ1IRT6vd3cu-vCLBueHFK2qkq&sz=w1000",
-        videoUrl: "https://drive.google.com/file/d/14Uuu9-lQ1IRT6vd3cu-vCLBueHFK2qkq/view?usp=drive_link",
-        orientation: "vertical",
-        category: "Reflection",
         platform: "instagram",
         featured: false,
         visible: true
